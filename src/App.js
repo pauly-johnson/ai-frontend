@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import './App.css';
+import categorizedRoles from './rolesData';
 
 function App() {
   const [prompt, setPrompt] = useState('');
@@ -37,6 +38,25 @@ function App() {
       <header className="App-header">
         <h1>Prompt Pro </h1>
         <form onSubmit={handleSubmit}>
+          {/* Role selection dropdown */}
+          <label htmlFor="role-select">Choose a role:</label>
+          <br/>
+          <select
+            id="role-select"
+            value={systemContent}
+            onChange={e => setSystemContent(e.target.value)}
+            style={{ marginBottom: '1em', width: 'auto' }}
+          >
+            <option value="">-- Select a role --</option>
+            {Object.entries(categorizedRoles).map(([category, roles]) => (
+              <optgroup key={category} label={category}>
+                {roles.map(role => (
+                  <option key={role} value={role}>{role}</option>
+                ))}
+              </optgroup>
+            ))}
+          </select>
+          <br/>
           <textarea
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
