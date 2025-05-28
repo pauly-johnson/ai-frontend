@@ -5,10 +5,12 @@ import './App.css';
 function App() {
   const [prompt, setPrompt] = useState('');
   const [response, setResponse] = useState('');
-  const [systemContent, setSystemContent] = useState('you are a helpful assistant');
+  const [systemContent, setSystemContent] = useState('you are an alien');
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       const res = await fetch('https://aitest-yr0w.onrender.com/api/chat', {
@@ -24,13 +26,16 @@ function App() {
     } catch (error) {
       console.error('Error connecting to the backend:', error);
       setResponse('Error connecting to the backend');
+    } finally {
+      setLoading(false);
+      setPrompt('');
     }
   };
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Chat </h1>
+        <h1>Prompt Pro </h1>
         <form onSubmit={handleSubmit}>
           <textarea
             value={prompt}
@@ -40,7 +45,8 @@ function App() {
             cols="50"
           />
           <br />
-          <button type="submit">Send</button>
+          {!loading && <button type="submit">Send</button>}
+          {loading && <span className="loader">Loading...</span>}
         </form>
         <div className="response">
           <h2>Response:</h2>

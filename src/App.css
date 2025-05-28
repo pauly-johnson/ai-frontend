@@ -28,6 +28,14 @@
   color: #61dafb;
 }
 
+.loader {
+  display: inline-block;
+  margin-left: 10px;
+  color: #61dafb;
+  font-weight: bold;
+  font-size: 18px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
