@@ -11,6 +11,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [selectedPrompt, setSelectedPrompt] = useState('');
   const [showInfo, setShowInfo] = useState(false);
+  const [showPromptInfo, setShowPromptInfo] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,14 +41,20 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Pro Prompt</h1>
-        <button
-          type="button"
-          onClick={() => setShowInfo(prev => !prev)}
-          style={{ marginBottom: '1em' }}
-        >
-          System Role Info
-          {showInfo ? ' 🔽' : ' 🔼'}
-        </button>
+        <div style={{ display: 'flex', gap: '1em', marginBottom: '1em' }}>
+          <button
+            type="button"
+            onClick={() => setShowInfo(prev => !prev)}
+          >
+            System Role Info{showInfo ? ' 🔽' : ' 🔼'}
+          </button>
+          <button
+            type="button"
+            onClick={() => setShowPromptInfo(prev => !prev)}
+          >
+            Prompt Info{showPromptInfo ? ' 🔽' : ' 🔼'}
+          </button>
+        </div>
         {showInfo && (
           <div className="info-box" style={{
             background: '#f0f4fa',
@@ -91,6 +98,35 @@ function App() {
                 <li>What knowledge or skills to focus on</li>
                 <li>How to behave in the conversation</li>
               </ul>
+            </ul>
+          </div>
+        )}
+        {showPromptInfo && (
+          <div className="info-box" style={{
+            background: '#f0f4fa',
+            border: '1px solid #bcd',
+            borderRadius: '8px',
+            padding: '1em',
+            marginBottom: '1em',
+            color: '#222',
+            maxWidth: '500px',
+            textAlign: 'left'
+          }}>
+            <h3>📦 What Does a Prompt Structure Look Like?</h3>
+            <p>Here are some easy examples of prompt templates:</p>
+            <ul>
+              <li><strong>🎯 Instruction Template</strong><br/>“Explain how to [do something].”<br/><em>Example:</em> “Explain how to tie a shoelace.”</li>
+              <li><strong>🧠 Ask a Question</strong><br/>“What is [thing] and why is it important?”<br/><em>Example:</em> “What is climate change and why is it important?”</li>
+              <li><strong>👨‍🏫 Role Template</strong><br/>“You are a [type of expert]. Help me [do something].”<br/><em>Example:</em> “You are a personal trainer. Help me start exercising.”</li>
+              <li><strong>📝 Rewrite or Improve Text</strong><br/>“Make this sentence sound more friendly: '[your sentence]'”<br/><em>Example:</em> “Make this sound more friendly: ‘You’re wrong.’”</li>
+              <li><strong>🔢 List Template</strong><br/>“Give me a list of [number] [things] about [topic].”<br/><em>Example:</em> “Give me a list of 5 tips for better sleep.”</li>
+              <li><strong>🎨 Creative Prompt</strong><br/>“Write a short story about [idea].”<br/><em>Example:</em> “Write a short story about a lonely robot who finds a cat.”</li>
+            </ul>
+            <h4>✅ Why Are Prompt Templates Useful?</h4>
+            <ul>
+              <li>Make it easier to get what you want from AI</li>
+              <li>Save time by giving you a starting point</li>
+              <li>Help beginners feel confident asking the AI anything</li>
             </ul>
           </div>
         )}
