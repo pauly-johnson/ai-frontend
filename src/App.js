@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import './App.css';
 import categorizedRoles from './rolesData';
+import categorizedPrompts from './promptTemplates';
 
 function App() {
   const [prompt, setPrompt] = useState('');
   const [response, setResponse] = useState('');
   const [systemContent, setSystemContent] = useState('you are an alien');
   const [loading, setLoading] = useState(false);
+  const [selectedPrompt, setSelectedPrompt] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,9 +38,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Prompt Pro </h1>
+        <h1>Pro Prompt</h1>
         <form onSubmit={handleSubmit}>
-          {/* Role selection dropdown */}
           <label htmlFor="role-select">Choose a role:</label>
           <br/>
           <select
@@ -52,6 +53,30 @@ function App() {
               <optgroup key={category} label={category}>
                 {roles.map(role => (
                   <option key={role} value={role}>{role}</option>
+                ))}
+              </optgroup>
+            ))}
+          </select>
+          <br/>
+          <label htmlFor="prompt-template-select">Choose a prompt template:</label>
+          <br/>
+          <select
+            id="prompt-template-select"
+            value={selectedPrompt}
+            onChange={e => {
+              const template = e.target.value;
+              if (template) {
+                setPrompt(prev => prev ? prev + '\n' + template : template);
+              }
+              setSelectedPrompt('');
+            }}
+            style={{ marginBottom: '1em', width: 'auto' }}
+          >
+            <option value="">-- Select a prompt template --</option>
+            {Object.entries(categorizedPrompts).map(([category, prompts]) => (
+              <optgroup key={category} label={category}>
+                {prompts.map(promptText => (
+                  <option key={promptText} value={promptText}>{promptText}</option>
                 ))}
               </optgroup>
             ))}
