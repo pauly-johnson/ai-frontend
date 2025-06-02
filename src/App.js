@@ -12,6 +12,7 @@ function App() {
   const [selectedPrompt, setSelectedPrompt] = useState('');
   const [showInfo, setShowInfo] = useState(false);
   const [showPromptInfo, setShowPromptInfo] = useState(false);
+  const [customRole, setCustomRole] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -136,7 +137,10 @@ function App() {
           <select
             id="role-select"
             value={systemContent}
-            onChange={e => setSystemContent(e.target.value)}
+            onChange={e => {
+              setSystemContent(e.target.value);
+              setCustomRole(''); // Clear custom role input if a dropdown role is selected
+            }}
             style={{ marginBottom: '1em', width: 'auto' }}
           >
             <option value="">-- Select a role --</option>
@@ -148,6 +152,19 @@ function App() {
               </optgroup>
             ))}
           </select>
+          <br/>
+          <label htmlFor="custom-role-input">Create Custom Role:</label>
+          <br/>
+          <input
+            type="text"
+            placeholder="Or create your own role..."
+            value={customRole}
+            onChange={e => {
+              setCustomRole(e.target.value);
+              setSystemContent(e.target.value);
+            }}
+            style={{ marginBottom: '1em', width: 'auto', minWidth: '270px' }}
+          />
           <br/>
           <label htmlFor="prompt-template-select">Choose a prompt template:</label>
           <br/>

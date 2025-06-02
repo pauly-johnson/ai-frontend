@@ -1,5 +1,4 @@
 // promptTemplates.js
-// This file stores categorized prompt templates for use in your React app or other JS modules.
 
 const categorizedPrompts = {
   'Learning & Understanding': [
@@ -12,7 +11,17 @@ const categorizedPrompts = {
     'What are some common misconceptions about [topic]?',
     'Break down [complex topic] step-by-step.',
     'Make a quick quiz about [subject].',
-    'Turn [definition or concept] into a flashcard.'
+    'Turn [definition or concept] into a flashcard.',
+    'Explain [topic] using a real-world analogy.',
+    'Compare [topic] to something in everyday life.',
+    'Turn this Wikipedia article into a kid-friendly summary: “[text]”',
+    'Create a table comparing [3 things].',
+    'What are the key takeaways from [book/article]?',
+    'Explain [topic] using only the 1000 most common words.',
+    'Build a study guide for [exam or test].',
+    'List the top 5 most important things to know about [subject].',
+    'Turn this video script into bullet points.',
+    'Explain this with a visual metaphor.'
   ],
   'Writing & Communication': [
     'Rewrite this sentence to sound more professional: “[your sentence]”',
@@ -24,7 +33,17 @@ const categorizedPrompts = {
     'Make this sound more casual: “[text]”',
     'Paraphrase this so it’s easier to understand.',
     'Check this for grammar and spelling mistakes: “[your text]”',
-    'Give this a better title: “[title or paragraph]”'
+    'Give this a better title: “[title or paragraph]”',
+    'Turn this bullet list into a smooth paragraph.',
+    'Make this tweet more engaging: “[tweet]”',
+    'Convert this outline into an introduction.',
+    'Write a formal version of this casual message.',
+    'Shorten this to meet a word limit.',
+    'Add emotion or humor to this story: “[text]”',
+    'Write a professional bio from these facts: “[bullet points]”',
+    'Generate a closing paragraph for this article.',
+    'Turn this rough draft into a polished piece.',
+    'Explain how to make this argument more persuasive.'
   ],
   'Productivity & Organization': [
     'Create a to-do list for [goal or project].',
@@ -36,7 +55,17 @@ const categorizedPrompts = {
     'What are the first 3 steps to start [project]?',
     'Help me prioritize this list: “[list of tasks]”',
     'Write a checklist for [task or process].',
-    'Suggest ways to organize my notes better.'
+    'Suggest ways to organize my notes better.',
+    'Create a simple project timeline.',
+    'Give me a 30-day challenge to improve [skill].',
+    'Write a daily planner for productivity.',
+    'Make a tracker template for my goals.',
+    'Turn my goal into a SMART goal.',
+    'Suggest a weekly reflection prompt.',
+    'Write a short motivational message for the start of my day.',
+    'Help me time-block a day with multiple tasks.',
+    'Suggest habit stacking ideas to build better routines.',
+    'Turn this list of tasks into categories: “[tasks]”'
   ],
   'Creativity & Fun': [
     'Write a story about a robot who learns to dance.',
@@ -48,7 +77,17 @@ const categorizedPrompts = {
     'Turn this boring sentence into something exciting: “[your sentence]”',
     'Write a riddle about a smartphone.',
     'Make a dialogue between a dragon and a pizza chef.',
-    'Describe a dream you might have after eating too much candy.'
+    'Describe a dream you might have after eating too much candy.',
+    'Generate a writing prompt for a spooky short story.',
+    'Describe a futuristic pet.',
+    'Write a short skit about time travel.',
+    'Imagine a world where music is a language.',
+    'Describe a plant that grows backwards in time.',
+    'Create a magical recipe with made-up ingredients.',
+    'Make a list of 10 silly new words and their definitions.',
+    'Write a song chorus about sunshine.',
+    'Describe what an alien zoo might look like.',
+    'Write a two-sentence horror story.'
   ],
   'Conversation & Roleplay': [
     'Pretend you are a travel guide in Tokyo. What should I visit?',
@@ -60,7 +99,17 @@ const categorizedPrompts = {
     'Pretend you’re a pirate. Tell me how to use a computer.',
     'You are a fitness trainer. Give me a beginner workout.',
     'Roleplay as a barista recommending coffee to someone new.',
-    'You’re an inventor. Explain your latest wild idea.'
+    'You’re an inventor. Explain your latest wild idea.',
+    'Act as a therapist (non-medical) helping with creative burnout.',
+    'Pretend you are a space explorer describing a new planet.',
+    'You are a detective solving a silly mystery.',
+    'Play the role of a teacher giving me homework.',
+    'You are a friendly alien trying to understand Earth food.',
+    'Pretend to be a startup founder pitching to investors.',
+    'Be my accountability buddy for the next 7 days.',
+    'You’re a wizard explaining how magic works.',
+    'Roleplay as a librarian recommending books for anxiety.',
+    'You are a fashion designer helping create a costume.'
   ],
   'Problem Solving & Decision Making': [
     'What are the pros and cons of [option]?',
@@ -72,8 +121,19 @@ const categorizedPrompts = {
     'Suggest a workaround for this issue: “[your problem]”',
     'What’s the easiest way to get started with [topic]?',
     'Help me come up with 3 ideas for [goal/project].',
-    'What are some tools or apps to help with [task]?'  
+    'What are some tools or apps to help with [task]?',
+    'Turn this problem into a checklist to solve it.',
+    'Suggest alternatives to this broken method: “[method]”',
+    'What’s the smartest way to save time on [task]?',
+    'List 3 creative solutions to this obstacle: “[situation]”',
+    'What are 3 questions I should ask to clarify this issue?',
+    'Compare the long-term effects of [option A] vs [option B].',
+    'Build a decision matrix for my options.',
+    'List early warning signs of a problem with [topic].',
+    'Help me troubleshoot this situation: “[description]”',
+    'What is a low-risk way to test this idea?'
   ]
-};
+}
+
 
 export default categorizedPrompts;
