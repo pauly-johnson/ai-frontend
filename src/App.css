@@ -14,18 +14,136 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background: rgba(40, 44, 52, 0.95);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: flex-start;
+  font-size: 1.1rem;
+  color: #fff;
+  padding: 2rem 1rem 3rem 1rem;
 }
 
-.App-link {
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
   color: #61dafb;
+}
+
+form {
+  background: #222c37;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
+  padding: 2rem 2rem 1.5rem 2rem;
+  margin-bottom: 2rem;
+  max-width: 480px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.3em;
+  color: #b3e5fc;
+  text-align: left;
+}
+
+select, input[type="text"], textarea {
+  border-radius: 8px;
+  border: 1px solid #bcd;
+  padding: 0.7em 1em;
+  margin-bottom: 1em;
+  font-size: 1rem;
+  background: #1a1d22;
+  color: #fff;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+select:focus, input[type="text"]:focus, textarea:focus {
+  border: 1.5px solid #61dafb;
+  outline: none;
+  box-shadow: 0 0 0 2px #61dafb33;
+}
+
+select, input[type="text"] {
+  min-width: 220px;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+button[type="submit"] {
+  background: linear-gradient(90deg, #61dafb 0%, #4f8cff 100%);
+  color: #222;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8em 0;
+  font-size: 1.1rem;
+  margin-top: 0.5em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(97,218,251,0.08);
+}
+button[type="submit"]:hover, button[type="submit"]:focus {
+  background: linear-gradient(90deg, #4f8cff 0%, #61dafb 100%);
+  color: #fff;
+}
+
+button[type="button"] {
+  background: #23272f;
+  color: #b3e5fc;
+  border: 1px solid #61dafb;
+  border-radius: 8px;
+  padding: 0.5em 1.2em;
+  font-size: 1rem;
+  margin-bottom: 0.5em;
+  cursor: pointer;
+  margin-right: 0.5em;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+button[type="button"]:hover, button[type="button"]:focus {
+  background: #61dafb;
+  color: #23272f;
+  border: 1.5px solid #b3e5fc;
+}
+
+.info-box {
+  background: #f0f4fa;
+  border: 1px solid #bcd;
+  border-radius: 12px;
+  padding: 1.2em 1.5em;
+  margin-bottom: 1.5em;
+  color: #222;
+  max-width: 520px;
+  text-align: left;
+  font-size: 1rem;
+  box-shadow: 0 2px 12px 0 rgba(97,218,251,0.08);
+}
+
+.response {
+  background: #23272f;
+  border-radius: 12px;
+  padding: 1.5em 1.2em;
+  margin-top: 1.5em;
+  max-width: 520px;
+  width: 100%;
+  color: #fff;
+  box-shadow: 0 2px 12px 0 rgba(97,218,251,0.08);
+  text-align: left;
+  word-break: break-word;
+}
+
+.response h2 {
+  color: #61dafb;
+  font-size: 1.3rem;
+  margin-bottom: 0.7em;
 }
 
 .loader {
@@ -34,6 +152,34 @@
   color: #61dafb;
   font-weight: bold;
   font-size: 18px;
+}
+
+body {
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+}
+
+@media (max-width: 600px) {
+  .App-header {
+    padding: 1rem 0.2rem 2rem 0.2rem;
+  }
+  form, .response, .info-box {
+    max-width: 98vw;
+    padding: 1em 0.5em;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  button[type="button"], button[type="submit"] {
+    font-size: 0.95rem;
+    padding: 0.6em 0.7em;
+  }
+  select, input[type="text"], textarea {
+    font-size: 0.98rem;
+    min-width: 120px;
+  }
 }
 
 @keyframes App-logo-spin {
