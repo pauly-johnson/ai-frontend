@@ -13,6 +13,7 @@ function App() {
   const [showInfo, setShowInfo] = useState(false);
   const [showPromptInfo, setShowPromptInfo] = useState(false);
   const [customRole, setCustomRole] = useState('');
+  const [prevPrompt, setPrevPrompt] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,6 +35,7 @@ function App() {
       setResponse('Error connecting to the backend');
     } finally {
       setLoading(false);
+      setPrevPrompt(prompt);
       setPrompt('');
     }
   };
@@ -202,6 +204,37 @@ function App() {
           {loading && <span className="loader">Loading...</span>}
         </form>
         <div className="response">
+          {response && (
+            <div style={{ position: 'relative', marginBottom: '1em', background: '#23272f', borderRadius: '8px', padding: '1em', boxShadow: '0 1px 6px 0 rgba(97,218,251,0.05)' }}>
+              {/* Copy button in the top right corner */}
+              <button
+                onClick={() => {
+                  const textToCopy = `Role: ${systemContent}\nPrompt: ${prevPrompt}\n\nResponse:\n${response}`;
+                  navigator.clipboard.writeText(textToCopy);
+                }}
+                title="Copy role, prompt, and response"
+                style={{
+                  position: 'absolute',
+                  top: 10,
+                  right: 10,
+                  background: '#222c37',
+                  color: '#61dafb',
+                  border: 'none',
+                  borderRadius: '4px',
+                  padding: '0.3em 0.7em',
+                  cursor: 'pointer',
+                  fontSize: '1em',
+                  transition: 'background 0.2s'
+                }}
+              >
+                📋
+              </button>
+              <div style={{ color: '#61dafb', fontWeight: 600, marginBottom: '0.3em' }}>Role:</div>
+              <div style={{ color: '#b3e5fc', marginBottom: '0.7em', fontSize: '1.05em' }}>{systemContent}</div>
+              <div style={{ color: '#61dafb', fontWeight: 600, marginBottom: '0.3em' }}>Prompt:</div>
+              <div style={{ color: '#fff', fontSize: '1.05em', whiteSpace: 'pre-line' }}>{prevPrompt}</div>
+            </div>
+          )}
           <h2>Response:</h2>
           <ReactMarkdown>{response}</ReactMarkdown>
         </div>
